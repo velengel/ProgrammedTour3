@@ -1,0 +1,47 @@
+#container {
+    position: relative;
+}
+
+#video {
+    transform: scaleX(-1);
+}
+
+#canvas {
+    transform: scaleX(-1);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#PageTitle {
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 5px double #333333;
+    border-radius: 10px;
+}
+
+.buttons {
+    text-align: center;
+    padding:5px;
+    font-size:1em;
+}
+
+.canvas-and-image {
+    display: flex;
+    text-align: center;
+}
+
+pre {
+    margin: 1em 0; /* ブロック前後の余白 */
+    padding: 1em; /* ブロック内の余白 */
+    border-radius: 5px; /* 角丸 */
+    background: #25292f; /* 背景色 */
+    color: #fff; /* 文字色 */
+    white-space: pre-wrap; /* はみ出たときに折り返す */
+  }
+
+#dat {
+    
+    font-size : 20px;
+}
