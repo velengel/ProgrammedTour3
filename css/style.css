@@ -1,5 +1,12 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
 #container {
     position: relative;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #video {
@@ -21,10 +28,18 @@
     border-radius: 10px;
 }
 
+#ProgressBar {
+    position: relative;
+    width: 250px;
+    height: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
 .buttons {
     text-align: center;
-    padding:5px;
-    font-size:1em;
+    padding: 5px;
+    font-size: 1em;
 }
 
 .canvas-and-image {
@@ -33,15 +48,20 @@
 }
 
 pre {
-    margin: 1em 0; /* ブロック前後の余白 */
-    padding: 1em; /* ブロック内の余白 */
-    border-radius: 5px; /* 角丸 */
-    background: #25292f; /* 背景色 */
-    color: #fff; /* 文字色 */
-    white-space: pre-wrap; /* はみ出たときに折り返す */
-  }
+    margin: 1em 0;
+    /* ブロック前後の余白 */
+    padding: 1em;
+    /* ブロック内の余白 */
+    border-radius: 5px;
+    /* 角丸 */
+    background: #25292f;
+    /* 背景色 */
+    color: #fff;
+    /* 文字色 */
+    white-space: pre-wrap;
+    /* はみ出たときに折り返す */
+}
 
 #dat {
-    
-    font-size : 20px;
+    font-size: 20px;
 }

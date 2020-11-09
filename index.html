@@ -12,16 +12,16 @@
 
 <body>
     <div id="PageTitle">
-        <h1>手続き型人生<br>体験ツアー3</h1>
+        <h1>手続き型人生体験ツアー3</h1>
     </div>
 
-    <div style="padding: 10px 10px 10px 10px;width: auto;">
+    <div id="ProgressBar">
         <label for="progress">Phase:</label> <progress id="progress" min=-1 max=4 value=-1></progress>
     </div>
 
     <div id="container">
-        <video id="video" width="400" height="300" autoplay></video>
-        <canvas id="canvas" width="400" height="300"></canvas>
+        <video id="video" width="600" height="450" autoplay></video>
+        <canvas id="canvas" width="600" height="450"></canvas>
     </div>
 
     <div id="emoBar" style="padding: 10px 10px 10px 10px;width: auto;">
@@ -30,7 +30,7 @@
 
     <font size=3>
         <br>
-        <div id="txt">これからあなたにいくつかの命令をするので、画面の指示通りに動いてみてください。<br>その後、あなたにプログラムされていた内容が表示されます。<br>顔認識を使うので、うまく認識しない場合は顔を明るくしてみてください。</div>
+        <div id="txt">これからあなたにいくつかの命令をするので、画面の指示通りに動いてみてください。<br>その後、あなたにプログラムされていた内容が表示されます。<br>顔認識を使うので、うまく認識しない場合は顔を明るくしたり<br>カメラに顔を近づけてみてください。</div>
         <!-- <div id="txt3"></div> -->
     </font>
 
@@ -44,10 +44,11 @@
 
     <script src="js/libs/clmtrackr.js"></script>
     <script src="js/libs/model_pca_20_svm.js"></script>
-    <script src="js/libs/emotionClassifier.js"></script> <!-- ★感情を分類する外部関数の読み込み -->
+    <script src="js/libs/emotionClassifier.js"></script>
+    <!-- ★感情を分類する外部関数の読み込み -->
     <script src="js/libs/emotionModel.js"></script>
 
-    <script src="js/apps/app.js"></script>
+    <script src="js/apps/master_app.js"></script>
 </body>
 
 </html>
