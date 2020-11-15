@@ -40,7 +40,7 @@ function showEmotionData(emo) {
     for (var i = 0; i < emo.length; i++) { // 全ての感情（6種類）について
         str += emo[i].emotion + ": " // 感情名
             +
-            emo[i].value.toFixed(4) + "<br>"; // 感情の程度（小数第一位まで）
+            emo[i].value.toFixed(1) + "<br>"; // 感情の程度（小数第一位まで）
     }
     var dat = document.getElementById("dat"); // データ表示用div要素の取得
     dat.innerHTML = str; // データ文字列の表示

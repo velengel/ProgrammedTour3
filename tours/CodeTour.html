@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <!-- スマホで見やすくする設定 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- ブラウザのタブに表示されるタイトル -->
+    <title>手続き型人生体験ツアー3</title>
+    <link rel="stylesheet" type="text/css" href="../css/CodeStyle.css">
+</head>
+
+<body>
+    <div id="PageTitle">
+        <h1>手続き型人生体験ツアー3</h1>
+    </div>
+
+    <div id="ProgressBar">
+        <label for="progress">Phase:</label> <progress id="progress" min=-1 max=4 value=-1></progress>
+    </div>
+
+    <div id="container">
+        <video id="video" width="600" height="450" autoplay></video>
+        <canvas id="canvas" width="600" height="450"></canvas>
+    </div>
+
+    <div id="emoBar">
+        <label for="emobar">Emo bar:</label> <meter id="emobar" min=0 max=5 value=2></progress>
+    </div>
+
+    <div id="inst">
+        <br>
+        <div id="txt">これからあなたにいくつかの命令をするので、画面の指示通りに動いてみてください。<br>その後、あなたにプログラムされていた内容が表示されます。<br>顔認識を使うので、うまく認識しない場合は顔を明るくしたり<br>カメラに顔を近づけてみてください。</div>
+        <br>
+    </div>
+
+    <div id="dat"></div>
+
+    <div id="start" style="margin-left:5%;margin-right:5%;">
+
+        <button onClick="Start()" style="width:100%;padding:10px;font-size:20px;">ツアースタート！</button>
+    </div>
+
+
+    <script src="../js/libs/clmtrackr.js"></script>
+    <script src="../js/libs/model_pca_20_svm.js"></script>
+    <script src="../js/libs/emotionClassifier.js"></script>
+    <!-- ★感情を分類する外部関数の読み込み -->
+    <script src="../js/libs/emotionModel.js"></script>
+
+    <script src="../js/apps/CodeTour.js"></script>
+</body>
+
+</html>

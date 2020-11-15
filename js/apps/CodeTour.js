@@ -56,33 +56,44 @@ function drawLoop() {
 }
 drawLoop();
 
+document.body.addEventListener('keydown',
+    event => {
+        if (event.key === 'n') {
+            phase++;
+        }
+    });
+
+var count = 0;
+timerID = setInterval('countup()', 1000);
+
+function countup() {
+    if (phase == 2) {
+
+        count++;
+        var dat = document.getElementById("dat");
+        dat.innerHTML = String(count);
+        if (count > 2) {
+            alert("あなたにプログラムされていた内容：\nまばたきする。\nカメラの画面をみる。\n他のことを考える。\n画面の他のところを見る。\nまばたきする。");
+            phase = 3;
+        }
+    }
+
+}
+
 function showData(pos, emo) {
     var txt = document.getElementById("txt");
     var dat = document.getElementById("dat");
     var phaseBar = document.getElementById("progress");
     phaseBar.value = phase;
-    var emoBar = document.getElementById("emobar");
+    var emoBar = document.getElementById("emoBar");
 
     switch (phase) {
         case 0:
             emoBar.style.display = "none";
             break;
         case 1:
-            emoBar.style.display = "block";
-            txt.innerHTML = "命令：笑顔になってください。";
-            if (!!emo[5].value) {
-                var hValue = emo[5].value;
-                emoBar.value = hValue;
-                //dat.innerHTML = "Value : " + hValue;
-                if (hValue > 0.5) {
-                    alert("aaaa");
-                    phase = 2;
-                }
-            }
-            break;
-        case 2:
             emoBar.style.display = "none";
-            txt.innerHTML = "命令：まばたきを10回してください。";
+            txt.innerHTML = "命令1：まばたきをしてください。";
             index++;
             for (var i = 0; i < pos.length; i++) {
                 if (!!pos[i][0] && !!pos[i][1]) {
@@ -110,20 +121,40 @@ function showData(pos, emo) {
 
             dat.innerHTML = bliCnt;
             //console.log(bliCnt + "\n");
-            if (bliCnt >= 10) {
-                alert("bbbb");
-                phase = 3;
+            if (bliCnt >= 7) {
+                alert("あなたにプログラムされていた内容：\n7回まばたきする");
+                phase = 2;
             }
+
+
+
+            break;
+        case 2:
+            emoBar.style.display = "none";
+            txt.innerHTML = "命令2：画面をじっと見てください。";
             break;
         case 3:
             emoBar.style.display = "block";
-            txt.innerHTML = "命令：驚いた顔をしてください。";
-            if (!!emo[4].value) {
-                var sValue = emo[4].value;
-                emoBar.value = sValue;
-                dat.innerHTML = "Value : " + sValue;
-                if (sValue > 0.2) {
-                    alert("cccc");
+            var emobar = document.getElementById("emobar");
+            //dat.style.display = "none";
+            txt.innerHTML = "命令3：笑顔になってください。";
+
+            /*var str = ""; // データの文字列を入れる変数
+            for (var i = 0; i < emo.length; i++) { // 全ての感情（6種類）について
+                str += emo[i].emotion + ": " // 感情名
+                    +
+                    emo[i].value.toFixed(5) + "<br>"; // 感情の程度（小数第一位まで）
+            }*/
+            var dat = document.getElementById("dat"); // データ表示用div要素の取得
+
+            if (!!emo[5].value) {
+                dat.innerHTML = emo[5].value;
+
+                var hValue = emo[5].value;
+                emobar.value = hValue * 5;
+
+                if (hValue > 0.9) {
+                    alert("あなたにプログラムされていた内容：\n目を細める。\n歯を見せて笑う。\n色んな角度を試す。");
                     phase = 4;
                 }
             }

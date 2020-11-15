@@ -1,6 +1,6 @@
 #container {
-    position: absolute;
-    margin-left: 10%;
+    position: relative;
+    margin-left: 5%;
     margin-right: 10%;
 }
 
@@ -16,8 +16,14 @@
 }
 
 #txt {
-    font-size: 10px;
-    margin-left: 10px;
+    font-size: 20px;
+    margin-left: 5%;
+}
+
+#emoBar {
+    position: relative;
+    padding: 20px;
+    margin-left: 5%;
 }
 
 #PageTitle {
@@ -30,8 +36,8 @@
 
 #ProgressBar {
     position: relative;
-    margin: 20px, 20px, 20px, 20px;
-    padding: 10px;
+    padding: 20px;
+    margin-left: 5%;
 }
 
 .buttons {
@@ -55,7 +61,7 @@ pre {
     /* はみ出たときに折り返す */
 }
 
-dat {
-    font-size: 20px;
-    margin-left: 10px;
+#dat {
+    font-size: 30px;
+    margin-left: 5%;
 }
