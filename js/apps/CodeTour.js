@@ -27,6 +27,7 @@ nos.length = 1000;
 
 var video = document.getElementById("video");
 var canvas = document.getElementById("canvas");
+
 var context = canvas.getContext("2d");
 
 var media = navigator.mediaDevices.getUserMedia({
@@ -73,8 +74,9 @@ function countup() {
         var dat = document.getElementById("dat");
         dat.innerHTML = String(count);
         if (count > 2) {
-            alert("あなたにプログラムされていた内容：\nまばたきする。\nカメラの画面をみる。\n他のことを考える。\n画面の他のところを見る。\nまばたきする。");
-            phase = 3;
+            createMordalWindow(phase);
+            //alert("あなたにプログラムされていた内容：\nまばたきする。\nカメラの画面をみる。\n他のことを考える。\n画面の他のところを見る。\nまばたきする。");
+            //phase = 3;
         }
     }
 
@@ -122,8 +124,9 @@ function showData(pos, emo) {
             dat.innerHTML = bliCnt;
             //console.log(bliCnt + "\n");
             if (bliCnt >= 7) {
-                alert("あなたにプログラムされていた内容：\n7回まばたきする");
-                phase = 2;
+                createMordalWindow(phase);
+                //alert("あなたにプログラムされていた内容：\n7回まばたきする");
+                //phase = 2;
             }
 
 
@@ -154,8 +157,9 @@ function showData(pos, emo) {
                 emobar.value = hValue * 5;
 
                 if (hValue > 0.9) {
-                    alert("あなたにプログラムされていた内容：\n目を細める。\n歯を見せて笑う。\n色んな角度を試す。");
-                    phase = 4;
+                    //alert("あなたにプログラムされていた内容：\n目を細める。\n歯を見せて笑う。\n色んな角度を試す。");
+                    createMordalWindow(phase);
+                    //phase = 4;
                 }
             }
             break;
@@ -170,4 +174,66 @@ function Start() {
     phase = 1;
     var sButton = document.getElementById("start");
     sButton.style.display = "none";
+}
+
+function createMordalWindow(phaseNumber) {
+    $(this).blur();
+    if ($("#modal-overlay")[0]) return false;
+    $("body").append('<div id="modal-overlay"></div>');
+    centeringModalSyncer();
+    $("#modal-overlay").fadeIn("slow");
+    $("#modal-content").fadeIn("slow");
+    switch (phaseNumber) {
+        case 1:
+            var programText = `<b>あなたにプログラムされていた内容：</b><br>
+            <pre>
+//7回まばたきする
+for i in range(7):
+  Blink();
+</pre>`
+            $("#ProgramText").html(programText);
+            break;
+        case 2:
+            var programText = `<b>あなたにプログラムされていた内容：</b><br>
+            <pre>
+ 数を数える  |  まばたきする。
+             |  カメラの画面をみる。
+             |  他のことを考える。
+             |  画面の他のところを見る。
+</pre>`
+            $("#ProgramText").html(programText);
+            break;
+        case 3:
+            var programText = `<b>あなたにプログラムされていた内容：</b><br>
+                <pre>
+//椅子を探す
+Object chair = Search()
+//椅子に向かって歩く。
+WalkTo(chair)
+//向きを変える。
+Turn()
+//椅子に座る。
+SitDown(chair)
+//日々の行動に条件分岐がないか考える。
+Think(conditionalBranch)
+</pre>`
+            $("#ProgramText").html(programText);
+            break;
+    }
+    $("#modal-overlay,#modal-close").unbind().click(function() {
+        $("#modal-overlay").remove();
+        $("#modal-content").css({ "display": "none" });
+        phase++;
+    });
+}
+
+function centeringModalSyncer() {
+    var w = $(window).width();
+    var h = $(window).height();
+    var cw = $("#modal-content").outerWidth({ margin: true });
+    var ch = $("#modal-content").outerHeight({ margin: true });
+    var pxleft = ((w - cw) / 2);
+    var pxtop = ((h - ch) / 2);
+    $("#modal-content").css({ "left": pxleft + "px" });
+    $("#modal-content").css({ "top": pxtop + "px" });
 }
