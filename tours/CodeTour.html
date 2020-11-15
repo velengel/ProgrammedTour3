@@ -21,37 +21,53 @@
         <h1>手続き型人生体験ツアー3</h1>
     </div>
 
+
     <div id="ProgressBar">
         <label for="progress">Phase:</label> <progress id="progress" min=-1 max=4 value=-1></progress>
     </div>
 
+
     <div id="container">
-        <video id="video" width="600" height="450" autoplay></video>
-        <canvas id="canvas" width="600" height="450"></canvas>
+        <video id="video" width="640" height="480" autoplay></video>
+        <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+    <div id="all">
+        <div id="emoBar">
+            <label for="emobar">Emo bar:</label> <meter id="emobar" min=0 max=5 value=2></progress>
+        </div>
+
+        <div id="inst">
+            <br>
+            <div id="txt">これからあなたにいくつかの命令をするので、画面の指示通りに動いてみてください。<br>その後、あなたにプログラムされていた内容が表示されます。<br>顔認識を使うので、うまく認識しない場合は顔を明るくしたり<br>カメラに顔を近づけてみてください。</div>
+            <br>
+        </div>
+
+        <div id="dat"></div>
     </div>
 
-    <div id="emoBar">
-        <label for="emobar">Emo bar:</label> <meter id="emobar" min=0 max=5 value=2></progress>
-    </div>
+        
 
-    <div id="inst">
-        <br>
-        <div id="txt">これからあなたにいくつかの命令をするので、画面の指示通りに動いてみてください。<br>その後、あなたにプログラムされていた内容が表示されます。<br>顔認識を使うので、うまく認識しない場合は顔を明るくしたり<br>カメラに顔を近づけてみてください。</div>
-        <br>
-    </div>
 
-    <div id="dat"></div>
 
     <div id="start" style="margin-left:5%;margin-right:5%;">
 
         <button onClick="Start()" style="width:100%;padding:10px;font-size:20px;">ツアースタート！</button>
     </div>
 
+    <div id="resize" style="margin-left:35%;margin-right:35%;padding: 30px;">
+
+        <button onClick="ResizeVideo()" style="width:100%;padding:10px;font-size:20px;">16:9に切り替え(デフォルトは4:3)</button>
+    </div>
+
+    <div id="program" style="margin-left: 5%; font-size: 20px;"></div>
+    
 
     <script src="../js/libs/clmtrackr.js"></script>
     <script src="../js/libs/model_pca_20_svm.js"></script>
     <script src="../js/libs/emotionClassifier.js"></script>
     <script src="../js/libs/emotionModel.js"></script>
+
+    <script src="../js/apps/resize.js"></script>
 
     <script src="../js/apps/CodeTour.js"></script>
 </body>

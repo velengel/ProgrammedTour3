@@ -27,7 +27,6 @@ nos.length = 1000;
 
 var video = document.getElementById("video");
 var canvas = document.getElementById("canvas");
-
 var context = canvas.getContext("2d");
 
 var media = navigator.mediaDevices.getUserMedia({
@@ -95,6 +94,8 @@ function showData(pos, emo) {
             break;
         case 1:
             emoBar.style.display = "none";
+            var resizeButton = document.getElementById("resize");
+            resizeButton.style.display = "none";
             txt.innerHTML = "命令1：まばたきをしてください。";
             index++;
             for (var i = 0; i < pos.length; i++) {
@@ -164,9 +165,53 @@ function showData(pos, emo) {
             }
             break;
         case 4:
-            txt.innerHTML = "おつかれさまでした！";
+            var all = document.getElementById("all");
+            all.style.display = "none";
+            var program = document.getElementById("program");
+            var programText = `
+<br>おつかれさまでした。<br>
+あなたにプログラムされていた内容は以下になります。<br>
+<b>無意識にやっている動作</b>や、<b>反復している動作</b>に気づけましたか？<br>
+<br>
+<pre><code>
+//あなたの人生のライブラリをimport
+import YourBehavior
+
+def main():
+    # 命令1：まばたきをしてください。
+    //7回まばたきする
+    for i in range(7):
+      Blink()
+    # 命令2：画面をじっと見てください。
+    while True:
+      //画面を見る
+      LookAt(display)
+      //まばたきする
+      Blink()
+      //他のことを考える
+      Think(something)
+      //周りを見る
+      LookAround()
+      //もしウィンドウが出たら、見るのをやめる
+      if find(window) == True:
+        break
+    # 命令3：笑顔になってください。
+    while True:
+      //目を細める
+      Squinch(eyes)
+      //歯を見せて笑う
+      Smile(with: teeth)
+      //色んな角度で笑ってみる
+      Laugh(from: manyAngles)
+    //もしウィンドウが出たら、笑顔を作るのをやめる
+      if find(window) == True:
+      break
+</code></pre>
+`;
+            program.innerHTML = programText;
             break;
     }
+
 
 }
 
@@ -189,33 +234,42 @@ function createMordalWindow(phaseNumber) {
             <pre>
 //7回まばたきする
 for i in range(7):
-  Blink();
+  Blink()
 </pre>`
             $("#ProgramText").html(programText);
+            bliCnt = 0;
             break;
         case 2:
             var programText = `<b>あなたにプログラムされていた内容：</b><br>
             <pre>
- 数を数える  |  まばたきする。
-             |  カメラの画面をみる。
-             |  他のことを考える。
-             |  画面の他のところを見る。
+while True:
+  //画面を見る
+  LookAt(display)
+  //まばたきする
+  Blink()
+  //他のことを考える
+  Think(something)
+  //周りを見る
+  LookAround()
+  //もしウィンドウが出たら、見るのをやめる
+  if find(window) == True:
+    break
 </pre>`
             $("#ProgramText").html(programText);
             break;
         case 3:
             var programText = `<b>あなたにプログラムされていた内容：</b><br>
                 <pre>
-//椅子を探す
-Object chair = Search()
-//椅子に向かって歩く。
-WalkTo(chair)
-//向きを変える。
-Turn()
-//椅子に座る。
-SitDown(chair)
-//日々の行動に条件分岐がないか考える。
-Think(conditionalBranch)
+while True:
+  //目を細める
+  Squinch(eyes)
+  //歯を見せて笑う
+  Smile(with: teeth)
+  //色んな角度で笑ってみる
+  Laugh(from: manyAngles)
+//もしウィンドウが出たら、笑顔を作るのをやめる
+  if find(window) == True:
+    break
 </pre>`
             $("#ProgramText").html(programText);
             break;

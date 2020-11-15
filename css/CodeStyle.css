@@ -5,17 +5,10 @@
 }
 
 #video {
-    width: 50%;
-    height: auto;
     transform: scaleX(-1);
-    position: relative;
-    left: 0;
-    top: 0;
 }
 
 #canvas {
-    width: 50%;
-    height: auto;
     transform: scaleX(-1);
     position: absolute;
     left: 0;
