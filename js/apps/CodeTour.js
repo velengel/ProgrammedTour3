@@ -72,7 +72,7 @@ function countup() {
         count++;
         var dat = document.getElementById("dat");
         dat.innerHTML = String(count);
-        if (count > 2) {
+        if (count > 11) {
             createMordalWindow(phase);
             //alert("あなたにプログラムされていた内容：\nまばたきする。\nカメラの画面をみる。\n他のことを考える。\n画面の他のところを見る。\nまばたきする。");
             //phase = 3;
@@ -150,9 +150,9 @@ function showData(pos, emo) {
                     emo[i].value.toFixed(5) + "<br>"; // 感情の程度（小数第一位まで）
             }*/
             var dat = document.getElementById("dat"); // データ表示用div要素の取得
-
+            dat.style.display = "none";
             if (!!emo[5].value) {
-                dat.innerHTML = emo[5].value;
+                //dat.innerHTML = emo[5].value;
 
                 var hValue = emo[5].value;
                 emobar.value = hValue * 5;
@@ -174,36 +174,36 @@ function showData(pos, emo) {
 <b>無意識にやっている動作</b>や、<b>反復している動作</b>に気づけましたか？<br>
 <br>
 <pre><code>
-//あなたの人生のライブラリをimport
+# あなたの人生のライブラリをimport
 import YourBehavior
 
 def main():
     # 命令1：まばたきをしてください。
-    //7回まばたきする
+    # 7回まばたきする
     for i in range(7):
       Blink()
     # 命令2：画面をじっと見てください。
     while True:
-      //画面を見る
+      # 画面を見る
       LookAt(display)
-      //まばたきする
+      # まばたきする
       Blink()
-      //他のことを考える
+      # 他のことを考える
       Think(something)
-      //周りを見る
+      # 周りを見る
       LookAround()
-      //もしウィンドウが出たら、見るのをやめる
+      # もしウィンドウが出たら、見るのをやめる
       if find(window) == True:
         break
     # 命令3：笑顔になってください。
     while True:
-      //目を細める
+      # 目を細める
       Squinch(eyes)
-      //歯を見せて笑う
+      # 歯を見せて笑う
       Smile(with: teeth)
-      //色んな角度で笑ってみる
+      # 色んな角度で笑ってみる
       Laugh(from: manyAngles)
-    //もしウィンドウが出たら、笑顔を作るのをやめる
+    # もしウィンドウが出たら、笑顔を作るのをやめる
       if find(window) == True:
       break
 </code></pre>
@@ -232,7 +232,7 @@ function createMordalWindow(phaseNumber) {
         case 1:
             var programText = `<b>あなたにプログラムされていた内容：</b><br>
             <pre>
-//7回まばたきする
+# 7回まばたきする
 for i in range(7):
   Blink()
 </pre>`
@@ -243,15 +243,15 @@ for i in range(7):
             var programText = `<b>あなたにプログラムされていた内容：</b><br>
             <pre>
 while True:
-  //画面を見る
+  # 画面を見る
   LookAt(display)
-  //まばたきする
+  # まばたきする
   Blink()
-  //他のことを考える
+  # 他のことを考える
   Think(something)
-  //周りを見る
+  # 周りを見る
   LookAround()
-  //もしウィンドウが出たら、見るのをやめる
+  # もしウィンドウが出たら、見るのをやめる
   if find(window) == True:
     break
 </pre>`
@@ -261,13 +261,13 @@ while True:
             var programText = `<b>あなたにプログラムされていた内容：</b><br>
                 <pre>
 while True:
-  //目を細める
+  # 目を細める
   Squinch(eyes)
-  //歯を見せて笑う
+  # 歯を見せて笑う
   Smile(with: teeth)
-  //色んな角度で笑ってみる
+  # 色んな角度で笑ってみる
   Laugh(from: manyAngles)
-//もしウィンドウが出たら、笑顔を作るのをやめる
+# もしウィンドウが出たら、笑顔を作るのをやめる
   if find(window) == True:
     break
 </pre>`
