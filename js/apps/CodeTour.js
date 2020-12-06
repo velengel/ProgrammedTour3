@@ -81,6 +81,8 @@ function countup() {
 
 }
 
+var noDetectionTime=120;
+
 function showData(pos, emo) {
     var txt = document.getElementById("txt");
     var dat = document.getElementById("dat");
@@ -94,8 +96,8 @@ function showData(pos, emo) {
             break;
         case 1:
             emoBar.style.display = "none";
-            var resizeButton = document.getElementById("resize");
-            resizeButton.style.display = "none";
+            //var resizeButton = document.getElementById("resize");
+            //resizeButton.style.display = "none";
             txt.innerHTML = "命令1：まばたきをしてください。";
             index++;
             for (var i = 0; i < pos.length; i++) {
@@ -140,6 +142,7 @@ function showData(pos, emo) {
         case 3:
             emoBar.style.display = "block";
             var emobar = document.getElementById("emobar");
+            noDetectionTime--;
             //dat.style.display = "none";
             txt.innerHTML = "命令3：笑顔になってください。";
 
@@ -157,12 +160,13 @@ function showData(pos, emo) {
                 var hValue = emo[5].value;
                 emobar.value = hValue * 5;
 
-                if (hValue > 0.9) {
+                if (hValue > 0.9 && noDetectionTime<0) {
                     //alert("あなたにプログラムされていた内容：\n目を細める。\n歯を見せて笑う。\n色んな角度を試す。");
                     createMordalWindow(phase);
                     //phase = 4;
                 }
             }
+            //console.log(noDetectionTime);
             break;
         case 4:
             var all = document.getElementById("all");
@@ -274,7 +278,7 @@ while True:
             $("#ProgramText").html(programText);
             break;
     }
-    $("#modal-overlay,#modal-close").unbind().click(function() {
+    $("#modal-close").unbind().click(function() {
         $("#modal-overlay").remove();
         $("#modal-content").css({ "display": "none" });
         phase++;

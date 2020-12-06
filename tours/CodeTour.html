@@ -14,7 +14,7 @@
 <body>
     <div id="modal-content" style="display: none;">
         <p id="ProgramText">あなたにプログラムされていた内容：</p>
-        <p><a id="modal-close" class="button-link">とじる</a></p>
+        <p><a id="modal-close" class="button-link">つぎへ</a></p>
     </div>
 
     <div id="PageTitle">
@@ -38,7 +38,12 @@
 
         <div id="inst">
             <br>
-            <div id="txt">これからあなたにいくつかの命令をするので、画面の指示通りに動いてみてください。<br>その後、あなたにプログラムされていた内容が表示されます。<br>顔認識を使うので、うまく認識しない場合は顔を明るくしたり<br>カメラに顔を近づけてみてください。</div>
+            <div id="txt">これからあなたにいくつかの命令をするので、画面の指示通りに動いてみてください。<br>
+                その後、あなたにプログラムされていた内容が表示されます。<br>
+                顔認識を使うので、うまく認識しない場合は顔を明るくしたり<br>
+                カメラに顔を近づけてみてください。<br>
+                
+            </div>
             <br>
         </div>
 
@@ -54,10 +59,19 @@
         <button onClick="Start()" style="width:100%;padding:10px;font-size:20px;">ツアースタート！</button>
     </div>
 
+
+    <div id="camerainst">
+        <br>メガネをかけている場合、メガネを外すとより認識されると思います。
+        <br>カメラのマーカーがずれているなと思った場合、下のボタンから縦横比を変更してみてください。
+    </div>
+
     <div id="resize" style="margin-left:35%;margin-right:35%;padding: 30px;">
 
-        <button onClick="ResizeVideo()" style="width:100%;padding:10px;font-size:20px;">16:9に切り替え(デフォルトは4:3)</button>
+        <button onClick="ResizeVideo()" style="width:100%;padding:10px;font-size:20px;">16:9 or 4:3に切り替え(デフォルトは4:3)</button>
     </div>
+
+
+
 
     <div id="program" style="margin-left: 5%; font-size: 20px;"></div>
     

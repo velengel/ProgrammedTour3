@@ -20,6 +20,11 @@
     margin-left: 5%;
 }
 
+#camerainst {
+    font-size: 20px;
+    margin-left: 5%;
+}
+
 #emoBar {
     position: relative;
     padding: 20px;
@@ -103,6 +108,6 @@ pre {
     top: 0;
     left: 0;
     width: 100%;
-    height: 120%;
+    height: 200%;
     background-color: rgba(0, 0, 0, 0.75);
 }
