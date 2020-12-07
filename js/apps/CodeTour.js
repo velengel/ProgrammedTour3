@@ -81,7 +81,7 @@ function countup() {
 
 }
 
-var noDetectionTime=120;
+var noDetectionTime = 200;
 
 function showData(pos, emo) {
     var txt = document.getElementById("txt");
@@ -160,7 +160,7 @@ function showData(pos, emo) {
                 var hValue = emo[5].value;
                 emobar.value = hValue * 5;
 
-                if (hValue > 0.9 && noDetectionTime<0) {
+                if (hValue > 0.9 && noDetectionTime < 0) {
                     //alert("あなたにプログラムされていた内容：\n目を細める。\n歯を見せて笑う。\n色んな角度を試す。");
                     createMordalWindow(phase);
                     //phase = 4;
